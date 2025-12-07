@@ -1,0 +1,9 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.logo_container {
+  h1 {
+    font-size: Logo here;
+  }
+}
