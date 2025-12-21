@@ -14,17 +14,19 @@ export default function Login() {
       <main className={style.main_container}>
         <h1>Login</h1>
         <form className={style.form}>
-          <label htmlFor="userName">User name</label>
+          <label htmlFor="userName">Email</label>
           <input
-            type="text"
+            type="email"
             id="userName"
+            placeholder="Enter your user name"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
           />
-          <label htmlFor="userPassword">user password</label>
+          <label htmlFor="userPassword">Password</label>
           <input
             type="password"
             id="userPassword"
+            placeholder="Enter your user password"
             value={userPassword}
             onChange={(e) => setUserPassword(e.target.value)}
           />

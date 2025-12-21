@@ -29,11 +29,11 @@ export default function Signin() {
           required={true}
         />
 
-        <label htmlFor="userEmail">userEmail</label>
+        <label htmlFor="userEmail">Email</label>
         <input
           type="userEmail"
           id="userEmail"
-          placeholder="Enter your userEmail"
+          placeholder="Enter your Email"
           value={userEmail}
           onChange={(e) => setuserEmail(e.target.value)}
           required={true}

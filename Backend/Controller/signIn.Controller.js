@@ -12,10 +12,8 @@ export default function signInController(req, res) {
         console.log(err);
         res.send(err);
       } else {
-        // console.log();
         res.send(result);
       }
     }
   );
-  // return res.send(req.body);
 }
