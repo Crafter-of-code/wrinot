@@ -3,10 +3,10 @@ import style from "./Login.module.css";
 import React from "react";
 export default function Login() {
   const {
-    user_name,
-    setUser_name,
-    setUser_password,
-    user_password,
+    userName,
+    setUserName,
+    setUserPassword,
+    userPassword,
     login_handler,
   } = React.useContext(Logincontext);
   return (
@@ -14,19 +14,19 @@ export default function Login() {
       <main className={style.main_container}>
         <h1>Login</h1>
         <form className={style.form}>
-          <label htmlFor="user_name">User name</label>
+          <label htmlFor="userName">User name</label>
           <input
             type="text"
-            id="user_name"
-            value={user_name}
-            onChange={(e) => setUser_name(e.target.value)}
+            id="userName"
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
           />
-          <label htmlFor="user_password">user password</label>
+          <label htmlFor="userPassword">user password</label>
           <input
             type="password"
-            id="user_password"
-            value={user_password}
-            onChange={(e) => setUser_password(e.target.value)}
+            id="userPassword"
+            value={userPassword}
+            onChange={(e) => setUserPassword(e.target.value)}
           />
           <button type="submit" onClick={login_handler}>
             Login

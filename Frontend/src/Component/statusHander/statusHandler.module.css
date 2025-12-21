@@ -1,0 +1,17 @@
+.main_container {
+  p {
+    border-radius: 0px 0px 10px 10px;
+    transition: 1s all ease-in-out;
+    padding: 10px;
+  }
+}
+.bg_red {
+  background-color: red;
+  color: white;
+  font-weight: 600;
+}
+.bg_green {
+  background-color: green;
+  color: white;
+  font-weight: 600;
+}

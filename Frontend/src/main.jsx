@@ -7,8 +7,14 @@ import Welcome from "./Pages/welcome/Welcome.jsx";
 import Home from "./Pages/home/Home.jsx";
 import Login from "./Pages/LogIn/Login.jsx";
 import Signin from "./Pages/signin/Signin.jsx";
-import { Logincontextprovider } from "./Store/Authcontext.jsx";
+import {
+  Logincontextprovider,
+  Signicontextprovider,
+} from "./Store/Authcontext.jsx";
 import NoteModel from "./Component/notemodel/NoteModel.jsx";
+import StatusHandler from "./Component/statusHander/StatusHandler.jsx";
+import StatusHandlerContextProvider from "./Store/StatusHandlerContentxt.jsx";
+// import StatuHandler from "./Component/statusHander/StatusHandler.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,15 +42,18 @@ const router = createBrowserRouter([
     path: "/signin",
     element: <Signin />,
   },
-  // {
-  //   path: "notemodel",
-  //   element: <NoteModel />,
-  // },
 ]);
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Logincontextprovider>
-      <RouterProvider router={router} />
-    </Logincontextprovider>
+    <StatusHandlerContextProvider>
+      <Signicontextprovider>
+        <Logincontextprovider>
+          <div className="status_handler">
+            <StatusHandler />
+          </div>
+          <RouterProvider router={router} />
+        </Logincontextprovider>
+      </Signicontextprovider>
+    </StatusHandlerContextProvider>
   </StrictMode>
 );
