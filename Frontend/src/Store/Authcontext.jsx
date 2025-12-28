@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { StatusHandlerContext } from "./StatusHandlerContentxt";
-
+import { useNavigate, redirect } from "react-router-dom";
 export const Logincontext = React.createContext({
   userName: "",
   userPassword: "",
@@ -30,13 +30,15 @@ export const SigninContext = React.createContext({
 });
 
 export function Logincontextprovider({ children }) {
+  const navigation = useNavigate();
   const { setResponseMessage, setResponseStatus, setShowResponse } =
     React.useContext(StatusHandlerContext);
+
   const [userName, setUserName] = React.useState("");
   const [userPassword, setUserPassword] = React.useState("");
-  function login_handler(e) {
-    setShowResponse(true);
+  async function login_handler(e) {
     e.preventDefault();
+    setShowResponse(true);
     const data = {
       userName,
       userPassword,
@@ -47,16 +49,19 @@ export function Logincontextprovider({ children }) {
       setResponseStatus(false);
       setResponseMessage("Fill all the fields");
     } else {
-      axios
-        .post("http://localhost:9090/login", data)
+      await axios
+        .post("http://localhost:9090/login", data, { withCredentials: true })
         .then((response) => {
           setResponseStatus(true);
-          setResponseMessage("every thing is great");
-          console.log(response);
+          setResponseMessage("You are Signed in");
+          console.log(response.data);
+          navigation(`/home/${response.data.userId}`);
         })
         .catch((err) => {
+          console.log("it is facing some problem");
+          console.log(err);
           setResponseStatus(false);
-          setResponseMessage("we are facing some error");
+          setResponseMessage("We don't find any entry in the database");
           console.log(err);
         });
     }
@@ -86,7 +91,6 @@ export function Signicontextprovider({ children }) {
     React.useContext(StatusHandlerContext);
   const [fullName, setFullName] = React.useState("");
   const [userEmail, setuserEmail] = React.useState("");
-  // const [userName, setUserName] = React.useState("");
   const [userPassword, setUserPassword] = React.useState("");
   const [userConfirmPassword, setUserConfirmPassword] = React.useState("");
   const [userPhone, setuserPhone] = React.useState("");

@@ -43,7 +43,7 @@ export default function Signin() {
         <input
           type="password"
           id="password"
-          placeholder="Enter password"
+          placeholder="Enter your password"
           value={userPassword}
           onChange={(e) => setUserPassword(e.target.value)}
           required={true}

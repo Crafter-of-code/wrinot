@@ -1,6 +1,17 @@
 import style from "./Welcome.module.css";
+import axios from "axios";
 import { Link } from "react-router-dom";
 export default function Welcome() {
+  axios
+    .get("http://localhost:9090/", {
+      withCredentials: true,
+    })
+    .then(() => {
+      console.log("The connection is seccessfullly");
+    })
+    .catch(() => {
+      console.log("The connection is failure");
+    });
   return (
     <>
       <div className={style.main_container}>

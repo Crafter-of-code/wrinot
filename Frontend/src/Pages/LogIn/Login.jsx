@@ -22,7 +22,7 @@ export default function Login() {
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
           />
-          <label htmlFor="userPassword">Password</label>
+          <label htmlFor="Password">Password</label>
           <input
             type="password"
             id="userPassword"
